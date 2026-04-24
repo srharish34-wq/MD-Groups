@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD GROUPS – Header</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #FFC40C;
+      --gold-d: #e0aa00;
+      --gold-light: #FFF3C4;
+      --gold-pale: #FFFBEA;
+      --white: #ffffff;
+      --text: #3a3000;
+      --text-mid: #6b5800;
+      --text-light: #a08500;
+      --radius: 10px;
+      --trans: 0.26s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #fff8e1;
+    }
+
+    /* ─── TOP STRIP ───────────────────────────────────── */
+    .top-strip {
+      background: var(--gold);
+      padding: 6px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-strip a {
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: .03em;
+      transition: opacity var(--trans);
+    }
+
+    .top-strip a:hover {
+      opacity: .65;
+    }
+
+    .top-strip .sep {
+      color: var(--text);
+      opacity: .35;
+    }
+
+    /* ─── HEADER ──────────────────────────────────────── */
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 4px 24px rgba(255, 196, 12, .15);
+    }
+
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 36px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ─── BRAND ───────────────────────────────────────── */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-wrap {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      /* background: var(--gold); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 0 3px var(--gold-light);
+      transition: box-shadow var(--trans), transform var(--trans);
+    }
+
+    .brand:hover .logo-wrap {
+      box-shadow: 0 0 0 5px rgba(255, 196, 12, .45);
+      transform: scale(1.04);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-wrap .monogram {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 27px;
+      letter-spacing: .12em;
+      color: var(--text);
+      margin-left: 22px;
+    }
+
+    .brand-name span {
+      color: var(--gold-d);
+    }
+
+    .brand-tagline {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 15px;
+      height: 76px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: color var(--trans), border-color var(--trans), background var(--trans);
+      white-space: nowrap;
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .nav-link:hover,
+    .nav-item:hover>.nav-link {
+      color: var(--text);
+      background: var(--gold-pale);
+      border-bottom-color: var(--gold);
+    }
+
+    .nav-link.active {
+      color: var(--text);
+      border-bottom-color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    .chev {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--trans);
+      color: var(--gold-d);
+    }
+
+    .nav-item:hover>.nav-link .chev {
+      transform: rotate(180deg);
+    }
+
+    /* ─── DROPDOWN ────────────────────────────────────── */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--white);
+      border: 1.5px solid var(--gold-light);
+      border-top: 3px solid var(--gold);
+      border-radius: 0 0 var(--radius) var(--radius);
+      min-width: 240px;
+      padding: 8px 0 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--trans), transform var(--trans);
+      box-shadow: 0 16px 50px rgba(255, 196, 12, .18), 0 4px 12px rgba(0, 0, 0, .06);
+      z-index: 999;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .drop-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--gold-d);
+      text-transform: uppercase;
+      padding: 10px 18px 4px;
+    }
+
+    .drop-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: background var(--trans), color var(--trans), padding-left var(--trans);
+    }
+
+    .drop-link:hover {
+      background: var(--gold-pale);
+      color: var(--text);
+      padding-left: 24px;
+    }
+
+    .drop-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--trans);
+    }
+
+    .drop-link:hover .drop-icon {
+      background: var(--gold);
+    }
+
+    .drop-icon svg {
+      width: 13px;
+      height: 13px;
+      color: var(--gold-d);
+    }
+
+    .drop-link:hover .drop-icon svg {
+      color: var(--text);
+    }
+
+    .drop-divider {
+      height: 1px;
+      background: var(--gold-light);
+      margin: 6px 0;
+    }
+
+    /* ─── ENQUIRY ─────────────────────────────────────── */
+    .btn-enquiry {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 18px;
+      padding: 0 22px;
+      height: 43px;
+      background: var(--gold);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background var(--trans), transform var(--trans), box-shadow var(--trans);
+      box-shadow: 0 3px 14px rgba(255, 196, 12, .4);
+      white-space: nowrap;
+    }
+
+    .btn-enquiry:hover {
+      background: var(--gold-d);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 196, 12, .5);
+    }
+
+    /* ─── HAMBURGER ───────────────────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: var(--gold-pale);
+      border: 1.5px solid var(--gold-light);
+      border-radius: 9px;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 9px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    /* ─── MOBILE MENU ─────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 2px solid var(--gold-light);
+      padding: 10px 0 20px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mob-link {
+      display: block;
+      padding: 12px 28px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-mid);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      transition: color var(--trans), background var(--trans);
+    }
+
+    .mob-link:hover {
+      color: var(--text);
+      background: var(--gold-pale);
+    }
+
+    .mob-section {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      color: var(--gold-d);
+      text-transform: uppercase;
+      padding: 14px 28px 4px;
+    }
+
+    .mob-sub {
+      display: block;
+      padding: 9px 28px 9px 42px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color var(--trans), background var(--trans);
+    }
+
+    .mob-sub:hover {
+      color: var(--text);
+      background: var(--gold-pale);
+    }
+
+    .mob-divider {
+      height: 1px;
+      background: var(--gold-light);
+      margin: 8px 0;
+    }
+
+    .mob-enquiry {
+      margin: 14px 28px 0;
+      padding: 13px;
+      background: var(--gold);
+      color: var(--text);
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      display: block;
+      box-shadow: 0 4px 14px rgba(255, 196, 12, .35);
+    }
+
+    @media (max-width: 920px) {
+
+      nav,
+      .btn-enquiry {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .top-strip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP STRIP -->
+  <div class="top-strip">
+    <a href="tel:+919999999999">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+      </svg>
+      +91 99402 45572
+    </a>
+    <span class="sep">|</span>
+    <a href="mailto:info@mdgroups.com">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+      msnciviltraders@gmail.com
+    </a>
+    <span class="sep">|</span>
+    <a href="#">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5 14.5 7.6 14.5 9 13.4 11.5 12 11.5z" />
+      </svg>
+      Chennai,Tamil Nadu
+    </a>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <div class="logo-wrap">
+          <img src="images/logo.png" alt="MD Groups Logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="monogram" style="display:none;">MD</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name"><span>MD</span> GROUPS</span>
+          <span class="brand-tagline">Mariadoss Group</span>
+        </div>
+      </a>
+
+      <nav>
+
+        <div class="nav-item">
+          <a href="index.html" class="nav-link ">Home</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="about.html" class="nav-link ">About</a>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="nav-item">
+          <a href="#" class="nav-link active">
+            Services
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </a>
+          <div class="dropdown">
+            <div class="drop-label">Our Services</div>
+            <a href="md-enterprises.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 21h18M9 21V7l6-4v18" />
+                  <path d="M13 11h2M13 15h2M9 11h2" />
+                </svg>
+              </div>
+              M.D. Enterprises
+            </a>
+
+            <a href="joy-enterprises.html" class="drop-link ">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              Joy Enterprises
+            </a>
+
+            <a href="real-estate.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                </svg>
+              </div>
+              Real Estate Projects - Jabamalai Avenue
+            </a>
+
+            <div class="drop-divider"></div>
+
+            <a href="joy-roy-gardens.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="3" width="15" height="13" />
+                  <path d="m16 8 5 0 3 4v4h-8V8z" />
+                  <circle cx="5.5" cy="18.5" r="2.5" />
+                  <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg>
+              </div>
+              Joy & Roy Gardens
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            Projects
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </a>
+          <div class="dropdown">
+            <div class="drop-label">Our Portfolio</div>
+            <a href="ongoing.html" class="drop-link">
+              <div class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 4 23 10 17 10" />
+                  <path d="M20.49 15a9 9 0 1 1-.02-7.14" />
+                </svg></div>
+              Ongoing Projects
+            </a>
+            <a href="completed.html" class="drop-link">
+              <div class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg></div>
+              Completed Projects
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="career.html" class="nav-link">Career</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+      </nav>
+
+      <a href="enquiry.html" class="btn-enquiry">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+        Get Enquiry
+      </a>
+
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mob-link">Home</a>
+      <a href="about.html" class="mob-link">About</a>
+      <div class="mob-divider"></div>
+      <div class="mob-section">Services</div>
+      <a href="services/md-enterprises.html" class="mob-sub">› M.D. Enterprises</a>
+      <a href="services/joy-enterprises.html" class="mob-sub">› Joy Enterprises</a>
+      <a href="services/real-estate.html" class="mob-sub">› Real Estate Projects - Jabamalai Avenue</a>
+      <a href="services/joy-roy-gardens.html" class="mob-sub">› Joy & Roy Gardens</a>
+
+      <div class="mob-divider"></div>
+      <div class="mob-section">Projects</div>
+      <a href="projects/ongoing.html" class="mob-sub">› Ongoing Projects</a>
+      <a href="projects/completed.html" class="mob-sub">› Completed Projects</a>
+      <div class="mob-divider"></div>
+      <a href="career.html" class="mob-link">Career</a>
+      <a href="contact.html" class="mob-link">Contact</a>
+      <a href="enquiry.html" class="mob-enquiry">Get an Enquiry →</a>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════
+     1. PAGE HERO BANNER
+════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('images/joy-enterprises-1.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <a href="#">Services</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        Joy Enterprises
+      </div>
+
+      <div class="hero-tag-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Construction & Development · Pannur, Tamil Nadu
+      </div>
+
+      <h1 class="page-hero-title">
+        Joy<br><span>Enterprises</span>
+      </h1>
+      <p class="page-hero-desc">
+        Building purposeful spaces where businesses don't just operate — they thrive. Led by Mr. Joy Sebastian, Joy
+        Enterprises brings integrity, precision, and hands-on leadership to every construction and development project.
+      </p>
+      <div class="hero-btns">
+        <a href="enquiry.html" class="btn-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          Start a Project
+        </a>
+        <a href="tel:+919940245572" class="btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+          Call Us Now
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stat-bar">
+      <div class="hero-stat">
+        <strong>3+</strong>
+        <span>Generations of Trust</span>
+      </div>
+      <div class="hero-stat">
+        <strong>100%</strong>
+        <span>In-House Construction</span>
+      </div>
+      <div class="hero-stat">
+        <strong>A-Grade</strong>
+        <span>Build Quality</span>
+      </div>
+      <div class="hero-stat">
+        <strong>Pannur</strong>
+        <span>Base of Operations</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     2. INTRO — About Joy Enterprises
+     Image: images/joy-enterprises-2.jpg
+════════════════════════════════════════════ -->
+  <section class="section section-cream" id="about">
+    <div class="container">
+      <div class="intro-grid">
+
+        <div class="intro-text reveal-left">
+          <div class="sec-label">About Joy Enterprises</div>
+          <h2 class="sec-title">Building Spaces Where <span>Businesses Thrive</span></h2>
+          <div class="gold-bar"></div>
+
+          <p class="lead">Carrying forward the legacy of Mr. M. S. Mariadoss, Joy Enterprises is led by Mr. Joy
+            Sebastian — a builder whose philosophy is as simple as it is powerful: build with purpose, operate with
+            integrity, and create environments where businesses don't just operate, but truly thrive.</p>
+
+          <p>Under the guidance of Mr. Mariadoss, both his sons — Mr. Joy Sebastian and Dr. Philip Roy — ventured into
+            the construction field and have since been actively involved in the development of multiple residential and
+            commercial projects, contributing to the group's growing presence across sectors.</p>
+
+          <p>Joy plays an active, hands-on role across every stage of development — from conceptual planning and
+            infrastructure design to tenant experience and operational efficiency. His attention to detail and deep
+            understanding of industrial and residential requirements ensures that every facility delivered is not only
+            structurally robust, but also strategically aligned with the evolving needs of businesses and families.</p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+              </div>
+              <div>
+                <div class="feature-title">Hands-On Leadership</div>
+                <div class="feature-desc">Mr. Joy Sebastian is personally involved at every stage — from site planning
+                  and structural design to final delivery and tenant support.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="feature-title">Residential & Commercial Expertise</div>
+                <div class="feature-desc">From residential layouts to commercial and industrial construction — Joy
+                  Enterprises delivers across all project types with consistent quality.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="feature-title">Legacy-Backed Standards</div>
+                <div class="feature-desc">Every project is built on the values instilled by three generations — trust,
+                  quality, and a deep commitment to long-term value creation.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="tel:+919940245572" class="contact-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+              +91 99402 45572
+            </a>
+            <a href="mailto:msnciviltraders@gmail.com" class="contact-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              msnciviltraders@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal-right">
+          <div class="intro-img-wrap">
+            <img src="images/joy2.jpg" alt="Joy Enterprises Construction"
+              onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80'" />
+            <div class="img-badge">
+              <strong>Joy</strong>
+              <span>Enterprises</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     3. MEET THE LEADER — Joy Sebastian
+     Image: images/joy-sebastian.jpg
+════════════════════════════════════════════ -->
+  <!-- <section class="section section-white" id="leader">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom: 52px;">
+        <div class="sec-label">The Leader Behind Joy Enterprises</div>
+        <h2 class="sec-title">Meet <span>Mr. Joy Sebastian</span></h2>
+        <div class="gold-bar center"></div>
+      </div>
+
+      <div class="joy-leader-grid">
+
+        <div class="joy-img-col reveal-left">
+          <div class="founder-frame">
+            <img src="images/joy-sebastian.jpg" alt="Mr. Joy Sebastian – Joy Enterprises"
+              onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80'" />
+          </div>
+          <div class="founder-ribbon">Mr. Joy Sebastian · Managing Director</div>
+        </div>
+
+        <div class="joy-leader-text reveal-right">
+          <div class="founder-quote-block">
+            <p class="founder-quote-text">
+              For me, every project is not just a structure — it is a platform for someone's dream, someone's
+              livelihood, someone's growth. That is what drives every decision we make at Joy Enterprises.
+            </p>
+          </div>
+
+          <p class="founder-bio-text">Mr. Joy Sebastian, son of Mr. M. S. Mariadoss, represents a seamless blend of
+            strong foundational values and modern execution. From an early age, he was shaped by his father's philosophy
+            of building with purpose and serving with integrity — principles that now define every project Joy
+            Enterprises undertakes.</p>
+
+          <p class="founder-bio-text">Joy plays an active, hands-on role across every stage of development — from
+            conceptual planning and infrastructure design to tenant experience and operational efficiency. His deep
+            understanding of industrial and residential construction requirements ensures that every facility is
+            structurally robust and strategically aligned with the needs of modern businesses.</p>
+
+          <p class="founder-bio-text">For Joy, construction goes beyond physical spaces. It is about enabling growth,
+            fostering long-term partnerships, and creating ecosystems where companies can scale with confidence. Under
+            his leadership, Joy Enterprises continues to expand its footprint — delivering high-quality, compliant, and
+            future-ready developments across Tamil Nadu.</p>
+
+          <p class="founder-bio-text" style="font-weight:600;color:var(--text);">Driven, accessible, and committed — Mr.
+            Joy Sebastian is not just building infrastructure, but shaping a platform for businesses, families, and
+            communities to grow, perform, and succeed.</p>
+
+          <div class="founder-name-block">
+            <div class="founder-full-name">Mr. Joy Sebastian</div>
+            <div class="founder-role-txt">Managing Director, Joy Enterprises & M.D. Enterprises</div>
+            <div class="founder-achievement-tags">
+              <span class="f-tag">Construction Expert</span>
+              <span class="f-tag">Infrastructure Developer</span>
+              <span class="f-tag">Hands-On Leader</span>
+              <span class="f-tag">3rd Generation Vision</span>
+            </div>
+            <div style="margin-top: 20px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a href="tel:+919940245572" class="team-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+                </svg>
+                +91 99402 45572
+              </a>
+              <a href="mailto:msnciviltraders@gmail.com" class="team-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                msnciviltraders@gmail.com
+              </a>
+              <a href="https://www.google.com/maps/place/JOY+ENTERPRISES/data=!4m2!3m1!1s0x0:0xb4d2c161119cf7e2"
+                target="_blank" class="team-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                View on Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section> -->
+
+
+  <!-- ════════════════════════════════════════════
+     4. PHOTO GALLERY — 5 Images
+     joy-enterprises-1.jpg to -5.jpg
+════════════════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="center reveal">
+        <div class="sec-label">Project Photos</div>
+        <h2 class="sec-title">Our Work <span>In Action</span></h2>
+        <div class="gold-bar center"></div>
+        <p style="font-size:15px;color:var(--text-mid);max-width:520px;margin:0 auto;">
+          A visual showcase of construction projects delivered by Joy Enterprises — click any photo to view full screen.
+        </p>
+      </div>
+
+      <div class="gallery-layout reveal">
+
+        <div class="gal-hero" onclick="openLightbox(0)">
+          <img src="images/joy-enterprises-1.jpg" alt="Joy Enterprises Project"
+            onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80'" />
+          <div class="gal-label">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+            Joy Enterprises — Construction Projects, Pannur
+          </div>
+        </div>
+
+        <div class="gallery-sub">
+          <div class="gal-item" onclick="openLightbox(1)">
+            <img src="images/joy-enterprises-2.jpg" alt="Joy Enterprises Project 2"
+              onerror="this.src='https://images.unsplash.com/photo-1590417975304-7f2cc9966571?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+          <div class="gal-item" onclick="openLightbox(2)">
+            <img src="images/joy-enterprises-3.jpg" alt="Joy Enterprises Project 3"
+              onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+          <div class="gal-item" onclick="openLightbox(3)">
+            <img src="images/joy-enterprises-4.jpg" alt="Joy Enterprises Project 4"
+              onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+          <div class="gal-item" onclick="openLightbox(4)">
+            <img src="images/joy-enterprises-5.jpg" alt="Joy Enterprises Project 5"
+              onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lb-inner">
+      <div class="lb-close" onclick="closeLightboxDirect()">✕</div>
+      <button class="lb-nav lb-prev" onclick="lbNav(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <img id="lbImg" src="" alt="Project Photo" />
+      <button class="lb-nav lb-next" onclick="lbNav(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+      <div class="lb-counter" id="lbCounter">1 / 5</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+     5. WHAT WE BUILD — Services Overview
+════════════════════════════════════════════ -->
+  <section class="section section-gold" id="services">
+    <div class="container">
+      <div class="center reveal">
+        <div class="sec-label">What We Build</div>
+        <h2 class="sec-title">Our <span>Construction Services</span></h2>
+        <div class="gold-bar center"></div>
+        <p style="font-size:15px;color:var(--text-mid);max-width:580px;margin:0 auto;">
+          Joy Enterprises undertakes a wide range of construction and development projects — each executed with the same
+          commitment to quality, compliance, and long-term value.
+        </p>
+      </div>
+
+      <div class="joy-services-grid">
+
+        <div class="joy-service-card reveal">
+          <div class="joy-service-num">01</div>
+          <div class="joy-service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M8 10v4M12 10v4M16 10v4" />
+            </svg>
+          </div>
+          <div class="joy-service-title">Industrial Construction</div>
+          <p class="joy-service-desc">Warehouses, production sheds, factory units, and industrial parks — designed for
+            functionality, compliance, and long-term durability across the Sriperumbudur–Oragadam corridor.</p>
+          <div class="joy-service-tags">
+            <span>Warehouses</span><span>Factory Units</span><span>Industrial Sheds</span>
+          </div>
+        </div>
+
+        <div class="joy-service-card reveal" style="transition-delay:.1s">
+          <div class="joy-service-num">02</div>
+          <div class="joy-service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <div class="joy-service-title">Residential Development</div>
+          <p class="joy-service-desc">Plot layout development, residential building construction, compound walls,
+            internal roads, and community infrastructure — crafted for families building their dream homes.</p>
+          <div class="joy-service-tags">
+            <span>Residential Layouts</span><span>Houses</span><span>Community Infrastructure</span>
+          </div>
+        </div>
+
+        <div class="joy-service-card reveal" style="transition-delay:.2s">
+          <div class="joy-service-num">03</div>
+          <div class="joy-service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+          </div>
+          <div class="joy-service-title">Commercial Construction</div>
+          <p class="joy-service-desc">Office spaces, commercial buildings, storage facilities, and mixed-use
+            developments — built to support businesses with environments that are efficient, compliant, and scalable.
+          </p>
+          <div class="joy-service-tags">
+            <span>Office Spaces</span><span>Storage</span><span>Mixed-Use Buildings</span>
+          </div>
+        </div>
+
+        <div class="joy-service-card reveal" style="transition-delay:.3s">
+          <div class="joy-service-num">04</div>
+          <div class="joy-service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 20h20M4 20V10l8-6 8 6v10" />
+              <path d="M10 20v-6h4v6" />
+            </svg>
+          </div>
+          <div class="joy-service-title">Civil & Site Development</div>
+          <p class="joy-service-desc">Land levelling, drainage systems, boundary development, access roads, and all
+            foundational civil works — executed with precision to prepare every site for successful development.</p>
+          <div class="joy-service-tags">
+            <span>Land Levelling</span><span>Drainage</span><span>Access Roads</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     6. WHY CHOOSE JOY ENTERPRISES
+════════════════════════════════════════════ -->
+  <section class="section section-white" id="why">
+    <div class="container">
+      <div class="center reveal">
+        <div class="sec-label">Why Joy Enterprises</div>
+        <h2 class="sec-title">Why Clients <span>Choose Us</span></h2>
+        <div class="gold-bar center"></div>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+            </svg>
+          </div>
+          <div class="why-title">Personal Involvement</div>
+          <p class="why-desc">Mr. Joy Sebastian is personally involved at every stage of every project — from planning
+            through to handover. You deal directly with the decision-maker, not a middleman.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.1s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </svg>
+          </div>
+          <div class="why-title">Quality Without Compromise</div>
+          <p class="why-desc">Every structure is built to the highest standards of material quality, structural
+            integrity, and finish — because we believe quality is not an option, it is the baseline.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.2s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
+          </div>
+          <div class="why-title">On-Time Delivery</div>
+          <p class="why-desc">We plan with precision and execute with discipline — ensuring projects are delivered on
+            schedule without sacrificing quality or compliance at any stage of construction.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.3s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          </div>
+          <div class="why-title">70+ Years of Legacy</div>
+          <p class="why-desc">Every project by Joy Enterprises is backed by the Mariadoss family's 70+ year legacy of
+            trust, integrity, and community service — a foundation that gives every client complete confidence.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.4s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+          </div>
+          <div class="why-title">Full Compliance</div>
+          <p class="why-desc">From structural approvals to safety standards — every Joy Enterprises project is executed
+            with strict adherence to all applicable regulatory and legal requirements.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.5s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <div class="why-title">Growing Footprint</div>
+          <p class="why-desc">Joy Enterprises is continuously expanding across residential, commercial, and industrial
+            sectors — bringing the same standards of excellence to an ever-growing portfolio of projects.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     7. LOCATION & CONTACT
+════════════════════════════════════════════ -->
+  <section class="section section-cream" id="location">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:48px;">
+        <div class="sec-label">Find Us</div>
+        <h2 class="sec-title">Location <span>&amp; Contact</span></h2>
+        <div class="gold-bar center"></div>
+      </div>
+
+      <div class="location-grid">
+
+        <div class="map-wrap reveal-left">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d79.8536476!3d12.952997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4d2c161119cf7e2!2sJOY%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1680000000000"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Joy Enterprises Location">
+          </iframe>
+        </div>
+
+        <div class="contact-cards reveal-right">
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Address</div>
+              <div class="cc-val">Pannur Village, Sriperumbudur–Oragadam<br>Industrial Corridor, Tamil Nadu</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Phone</div>
+              <div class="cc-val"><a href="tel:+919940245572">+91 99402 45572</a></div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Email</div>
+              <div class="cc-val"><a href="mailto:msnciviltraders@gmail.com">msnciviltraders@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Working Hours</div>
+              <div class="cc-val">Monday – Saturday: 9:00 AM – 6:00 PM</div>
+            </div>
+          </div>
+
+          <div style="margin-top:6px;">
+            <a href="https://www.google.com/maps/place/JOY+ENTERPRISES/data=!4m2!3m1!1s0x0:0xb4d2c161119cf7e2"
+              target="_blank" class="btn-gold" style="width:100%;justify-content:center;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                style="width:15px;height:15px;">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              Get Directions on Google Maps
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     8. CTA BANNER
+════════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container cta-inner reveal">
+      <h2>Ready to Build Something Great?</h2>
+      <p>Let's discuss your project — from concept to completion, Joy Enterprises is your trusted construction partner.
+      </p>
+      <div class="cta-btns">
+        <a href="enquiry.html" class="btn-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px;">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          Send an Enquiry
+        </a>
+        <a href="tel:+919940245572" class="btn-outline-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px;">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+          Call +91 99402 45572
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+  <footer>
+
+    <!-- MAIN BODY -->
+    <div class="footer-body">
+
+      <!-- COL 1 – BRAND -->
+      <div class="footer-brand">
+        <a href="index.html" class="brand-row">
+          <div class="f-logo-wrap">
+            <img src="images/logo.png" alt="MD Groups Logo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+            <span class="monogram" style="display:none;">MD</span>
+          </div>
+          <div class="f-brand-text">
+            <span class="f-brand-name"><span>MD</span> GROUPS</span>
+            <span class="f-brand-tagline">MARIADOSS GROUP</span>
+          </div>
+        </a>
+        <p class="footer-desc">
+          MD Groups is a diversified business conglomerate based in Erode, Tamil Nadu — delivering excellence across
+          real estate, enterprises, and lifestyle developments.
+        </p>
+        <div class="social-row">
+          <!-- Facebook -->
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" class="social-btn" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.47 14.38c-.28-.14-1.65-.81-1.9-.9s-.44-.14-.63.14-.72.9-.88 1.09-.32.2-.6.07a7.53 7.53 0 0 1-2.22-1.37 8.33 8.33 0 0 1-1.54-1.91c-.16-.28 0-.43.12-.57s.28-.32.42-.49a1.9 1.9 0 0 0 .28-.46.51.51 0 0 0 0-.49c-.07-.14-.63-1.52-.86-2.08s-.46-.47-.63-.48h-.54a1 1 0 0 0-.74.35 3.12 3.12 0 0 0-.97 2.31 5.41 5.41 0 0 0 1.13 2.87 12.39 12.39 0 0 0 4.74 4.19 5.53 5.53 0 0 0 3.15.66 2.85 2.85 0 0 0 1.88-1.33 2.33 2.33 0 0 0 .16-1.33c-.07-.11-.25-.18-.53-.32zM12 2a10 10 0 0 0-8.67 15L2 22l5.2-1.36A10 10 0 1 0 12 2z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 – QUICK LINKS -->
+      <div class="footer-col">
+        <div class="col-title">Quick Links</div>
+        <div class="col-underline"></div>
+        <ul class="footer-links">
+          <li><a href="index.html"><span class="fl-dot"></span>Home</a></li>
+          <li><a href="about.html"><span class="fl-dot"></span>About Us</a></li>
+          <li><a href="projects/ongoing.html"><span class="fl-dot"></span>Ongoing Projects</a></li>
+          <li><a href="projects/completed.html"><span class="fl-dot"></span>Completed Projects</a></li>
+          <li><a href="career.html"><span class="fl-dot"></span>Career</a></li>
+          <li><a href="enquiry.html"><span class="fl-dot"></span>Enquiry</a></li>
+          <li><a href="contact.html"><span class="fl-dot"></span>Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3 – OUR SERVICES -->
+      <div class="footer-col">
+        <div class="col-title">Our Services</div>
+        <div class="col-underline"></div>
+        <ul class="footer-links">
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>M.D. Enterprises
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>Joy Enterprises
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>Jabamalai Avenue
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>Joy &amp; Roy Gardens
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- COL 4 – CONTACT -->
+      <div class="footer-col">
+        <div class="col-title">Get In Touch</div>
+        <div class="col-underline"></div>
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Phone</span>
+              <a href="tel:+919999999999" class="contact-value">+91 99999 99999</a>
+              <a href="tel:+918888888888" class="contact-value">+91 88888 88888</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Email</span>
+              <a href="mailto:info@mdgroups.com" class="contact-value">info@mdgroups.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Address</span>
+              <span class="contact-value">Erode, Tamil Nadu,<br>India – 638 001</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER STRIP -->
+    <div class="newsletter-strip">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h4>Stay Updated with MD Groups</h4>
+          <p>Subscribe to get the latest projects and updates directly to your inbox.</p>
+        </div>
+        <div class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address…" />
+          <button class="newsletter-btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-copy">
+          © 2025 <strong>MD Groups</strong>. <span>All Rights Reserved.</span>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 920)
+        document.getElementById('mobileMenu').classList.remove('open');
+    });
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ── FAB back to top (guarded) ── */
+    const fabTop = document.getElementById('fabTop');
+    if (fabTop) {
+      window.addEventListener('scroll', () => {
+        fabTop.classList.toggle('show', window.scrollY > 400);
+      });
+    }
+
+
+  </script>
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>

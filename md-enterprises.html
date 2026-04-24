@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD GROUPS – Header</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #FFC40C;
+      --gold-d: #e0aa00;
+      --gold-light: #FFF3C4;
+      --gold-pale: #FFFBEA;
+      --white: #ffffff;
+      --text: #3a3000;
+      --text-mid: #6b5800;
+      --text-light: #a08500;
+      --radius: 10px;
+      --trans: 0.26s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #fff8e1;
+    }
+
+    /* ─── TOP STRIP ───────────────────────────────────── */
+    .top-strip {
+      background: var(--gold);
+      padding: 6px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-strip a {
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: .03em;
+      transition: opacity var(--trans);
+    }
+
+    .top-strip a:hover {
+      opacity: .65;
+    }
+
+    .top-strip .sep {
+      color: var(--text);
+      opacity: .35;
+    }
+
+    /* ─── HEADER ──────────────────────────────────────── */
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 4px 24px rgba(255, 196, 12, .15);
+    }
+
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 36px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ─── BRAND ───────────────────────────────────────── */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-wrap {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      /* background: var(--gold); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 0 3px var(--gold-light);
+      transition: box-shadow var(--trans), transform var(--trans);
+    }
+
+    .brand:hover .logo-wrap {
+      box-shadow: 0 0 0 5px rgba(255, 196, 12, .45);
+      transform: scale(1.04);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-wrap .monogram {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 27px;
+      letter-spacing: .12em;
+      color: var(--text);
+      margin-left: 22px;
+    }
+
+    .brand-name span {
+      color: var(--gold-d);
+    }
+
+    .brand-tagline {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 15px;
+      height: 76px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: color var(--trans), border-color var(--trans), background var(--trans);
+      white-space: nowrap;
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .nav-link:hover,
+    .nav-item:hover>.nav-link {
+      color: var(--text);
+      background: var(--gold-pale);
+      border-bottom-color: var(--gold);
+    }
+
+    .nav-link.active {
+      color: var(--text);
+      border-bottom-color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    .chev {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--trans);
+      color: var(--gold-d);
+    }
+
+    .nav-item:hover>.nav-link .chev {
+      transform: rotate(180deg);
+    }
+
+    /* ─── DROPDOWN ────────────────────────────────────── */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--white);
+      border: 1.5px solid var(--gold-light);
+      border-top: 3px solid var(--gold);
+      border-radius: 0 0 var(--radius) var(--radius);
+      min-width: 240px;
+      padding: 8px 0 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--trans), transform var(--trans);
+      box-shadow: 0 16px 50px rgba(255, 196, 12, .18), 0 4px 12px rgba(0, 0, 0, .06);
+      z-index: 999;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .drop-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--gold-d);
+      text-transform: uppercase;
+      padding: 10px 18px 4px;
+    }
+
+    .drop-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: background var(--trans), color var(--trans), padding-left var(--trans);
+    }
+
+    .drop-link:hover {
+      background: var(--gold-pale);
+      color: var(--text);
+      padding-left: 24px;
+    }
+
+    .drop-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--trans);
+    }
+
+    .drop-link:hover .drop-icon {
+      background: var(--gold);
+    }
+
+    .drop-icon svg {
+      width: 13px;
+      height: 13px;
+      color: var(--gold-d);
+    }
+
+    .drop-link:hover .drop-icon svg {
+      color: var(--text);
+    }
+
+    .drop-divider {
+      height: 1px;
+      background: var(--gold-light);
+      margin: 6px 0;
+    }
+
+    /* ─── ENQUIRY ─────────────────────────────────────── */
+    .btn-enquiry {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 18px;
+      padding: 0 22px;
+      height: 43px;
+      background: var(--gold);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background var(--trans), transform var(--trans), box-shadow var(--trans);
+      box-shadow: 0 3px 14px rgba(255, 196, 12, .4);
+      white-space: nowrap;
+    }
+
+    .btn-enquiry:hover {
+      background: var(--gold-d);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 196, 12, .5);
+    }
+
+    /* ─── HAMBURGER ───────────────────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: var(--gold-pale);
+      border: 1.5px solid var(--gold-light);
+      border-radius: 9px;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 9px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    /* ─── MOBILE MENU ─────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 2px solid var(--gold-light);
+      padding: 10px 0 20px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mob-link {
+      display: block;
+      padding: 12px 28px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-mid);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      transition: color var(--trans), background var(--trans);
+    }
+
+    .mob-link:hover {
+      color: var(--text);
+      background: var(--gold-pale);
+    }
+
+    .mob-section {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      color: var(--gold-d);
+      text-transform: uppercase;
+      padding: 14px 28px 4px;
+    }
+
+    .mob-sub {
+      display: block;
+      padding: 9px 28px 9px 42px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color var(--trans), background var(--trans);
+    }
+
+    .mob-sub:hover {
+      color: var(--text);
+      background: var(--gold-pale);
+    }
+
+    .mob-divider {
+      height: 1px;
+      background: var(--gold-light);
+      margin: 8px 0;
+    }
+
+    .mob-enquiry {
+      margin: 14px 28px 0;
+      padding: 13px;
+      background: var(--gold);
+      color: var(--text);
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      display: block;
+      box-shadow: 0 4px 14px rgba(255, 196, 12, .35);
+    }
+
+    @media (max-width: 920px) {
+
+      nav,
+      .btn-enquiry {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .top-strip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP STRIP -->
+  <div class="top-strip">
+    <a href="tel:+919999999999">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+      </svg>
+      +91 99402 45572
+    </a>
+    <span class="sep">|</span>
+    <a href="mailto:info@mdgroups.com">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+      msnciviltraders@gmail.com
+    </a>
+    <span class="sep">|</span>
+    <a href="#">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5 14.5 7.6 14.5 9 13.4 11.5 12 11.5z" />
+      </svg>
+      Chennai,Tamil Nadu
+    </a>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <div class="logo-wrap">
+          <img src="images/logo.png" alt="MD Groups Logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="monogram" style="display:none;">MD</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name"><span>MD</span> GROUPS</span>
+          <span class="brand-tagline">Mariadoss Group</span>
+        </div>
+      </a>
+
+      <nav>
+
+        <div class="nav-item">
+          <a href="index.html" class="nav-link ">Home</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="about.html" class="nav-link ">About</a>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="nav-item">
+          <a href="#" class="nav-link active">
+            Services
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </a>
+          <div class="dropdown">
+            <div class="drop-label">Our Services</div>
+            <a href="md-enterprises.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 21h18M9 21V7l6-4v18" />
+                  <path d="M13 11h2M13 15h2M9 11h2" />
+                </svg>
+              </div>
+              M.D. Enterprises
+            </a>
+
+            <a href="joy-enterprises.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              Joy Enterprises
+            </a>
+
+            <a href="real-estate.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                </svg>
+              </div>
+              Real Estate Projects - Jabamalai Avenue
+            </a>
+
+            <div class="drop-divider"></div>
+
+            <a href="joy-roy-gardens.html" class="drop-link">
+              <div class="drop-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="3" width="15" height="13" />
+                  <path d="m16 8 5 0 3 4v4h-8V8z" />
+                  <circle cx="5.5" cy="18.5" r="2.5" />
+                  <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg>
+              </div>
+              Joy & Roy Gardens
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            Projects
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </a>
+          <div class="dropdown">
+            <div class="drop-label">Our Portfolio</div>
+            <a href="ongoing.html" class="drop-link">
+              <div class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 4 23 10 17 10" />
+                  <path d="M20.49 15a9 9 0 1 1-.02-7.14" />
+                </svg></div>
+              Ongoing Projects
+            </a>
+            <a href="completed.html" class="drop-link">
+              <div class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg></div>
+              Completed Projects
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="career.html" class="nav-link">Career</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+      </nav>
+
+      <a href="enquiry.html" class="btn-enquiry">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+        Get Enquiry
+      </a>
+
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mob-link">Home</a>
+      <a href="about.html" class="mob-link">About</a>
+      <div class="mob-divider"></div>
+      <div class="mob-section">Services</div>
+      <a href="services/md-enterprises.html" class="mob-sub">› M.D. Enterprises</a>
+      <a href="services/joy-enterprises.html" class="mob-sub">› Joy Enterprises</a>
+      <a href="services/real-estate.html" class="mob-sub">› Real Estate Projects - Jabamalai Avenue</a>
+      <a href="services/joy-roy-gardens.html" class="mob-sub">› Joy & Roy Gardens</a>
+
+      <div class="mob-divider"></div>
+      <div class="mob-section">Projects</div>
+      <a href="projects/ongoing.html" class="mob-sub">› Ongoing Projects</a>
+      <a href="projects/completed.html" class="mob-sub">› Completed Projects</a>
+      <div class="mob-divider"></div>
+      <a href="career.html" class="mob-link">Career</a>
+      <a href="contact.html" class="mob-link">Contact</a>
+      <a href="enquiry.html" class="mob-enquiry">Get an Enquiry →</a>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════
+     YOUR HEADER GOES HERE (include header.html or paste it)
+═══════════════════════════════════════════════ -->
+
+  <!-- ════════════════════════════════════════════
+     1. PAGE HERO BANNER
+     Image: images/md-enterprises-1.jpg (hero background)
+════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('images/service1.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <a href="#">Services</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        M.D. Enterprises
+      </div>
+
+      <div class="hero-tag-line">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 21h18M9 21V7l6-4v18M13 11h2M13 15h2M9 11h2" />
+        </svg>
+        Industrial Park · Pannur, Sriperumbudur
+      </div>
+
+      <h1 class="page-hero-title">
+        M.D.<br><span>Enterprises</span>
+      </h1>
+      <p class="page-hero-desc">
+        Premium A-Grade industrial warehouse and production spaces in the heart of the Sriperumbudur–Oragadam corridor —
+        built for manufacturing, logistics, and long-term growth.
+      </p>
+      <div class="hero-btns">
+        <a href="enquiry.html" class="btn-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          Book a Site Visit
+        </a>
+        <a href="tel:+919940245572" class="btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+          Call Us Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats bar at bottom of hero -->
+    <div class="hero-stat-bar">
+      <div class="hero-stat">
+        <strong>2</strong>
+        <span>Operational Units</span>
+      </div>
+      <div class="hero-stat">
+        <strong>A-Grade</strong>
+        <span>Warehouse Facilities</span>
+      </div>
+      <div class="hero-stat">
+        <strong>100%</strong>
+        <span>Regulatory Compliant</span>
+      </div>
+      <div class="hero-stat">
+        <strong>Pannur</strong>
+        <span>Strategic Location</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     2. INTRO — Text left, image right
+     Image: images/md-enterprises-2.jpg
+════════════════════════════════════════════ -->
+  <section class="section section-cream" id="about">
+    <div class="container">
+      <div class="intro-grid">
+
+        <div class="intro-text reveal-left">
+          <div class="sec-label">About M.D. Enterprises</div>
+          <h2 class="sec-title">Industrial Infrastructure <span>Built for Growth</span></h2>
+          <div class="gold-bar"></div>
+
+          <p class="lead">M.D. Enterprises is a forward-looking industrial infrastructure provider dedicated to
+            delivering high-quality, compliant, and scalable warehouse solutions in emerging manufacturing hubs of Tamil
+            Nadu.</p>
+
+          <p>Strategically located in Pannur village, within the fast-growing Sriperumbudur–Oragadam industrial
+            corridor, the company is ideally positioned to support a wide spectrum of manufacturing and logistics
+            operations — backed by strong connectivity and a thriving industrial ecosystem.</p>
+
+          <p>The foundation of this industrial park has been shaped by the vision of <strong>Mr. M. S.
+              Mariadoss</strong>, who has been instrumental in conceptualizing and developing the project from the
+            ground up. Under his guidance, and in close collaboration with <strong>Mr. Joy Sebastian</strong>, the
+            warehouses have been meticulously planned and executed to meet the evolving needs of modern industry.</p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+              </div>
+              <div>
+                <div class="feature-title">Fully Compliant &amp; Ready</div>
+                <div class="feature-desc">Every facility is executed with strict adherence to all regulatory and legal
+                  standards — giving your operations complete confidence from day one.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="feature-title">Premium A-Grade Construction</div>
+                <div class="feature-desc">Robust structural design, high-quality materials, and modern industrial
+                  construction standards that ensure long-term durability and operational efficiency.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+              </div>
+              <div>
+                <div class="feature-title">Prime Corridor Location</div>
+                <div class="feature-desc">Positioned in the Sriperumbudur–Oragadam industrial corridor — one of South
+                  India's fastest-growing industrial hubs, with excellent NH access and logistics connectivity.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a href="tel:+919940245572" class="contact-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+              +91 99402 45572
+            </a>
+            <a href="mailto:enterprisesmd21@gmail.com" class="contact-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              enterprisesmd21@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal-right">
+          <div class="intro-img-wrap">
+            <!--
+            Image: images/md-enterprises-2.jpg
+            Suggested: exterior shot of the warehouse / industrial park entrance
+          -->
+            <img src="images/md-enterprises-2.jpg" alt="M.D. Enterprises Industrial Park"
+              onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=80'" />
+            <div class="img-badge">
+              <strong>Unit 1 &amp; 2</strong>
+              <span>Fully Operational</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     3. PHOTO GALLERY — 5 Images
+     hero   → images/md-enterprises-1.jpg  (full-width, already used as hero BG — use best shot here)
+     item 2 → images/md-enterprises-2.jpg
+     item 3 → images/md-enterprises-3.jpg
+     item 4 → images/md-enterprises-4.jpg
+     item 5 → images/md-enterprises-5.jpg
+════════════════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="center reveal">
+        <div class="sec-label">Project Photos</div>
+        <h2 class="sec-title">A Look Inside <span>Our Facilities</span></h2>
+        <div class="gold-bar center"></div>
+        <p style="font-size:15px;color:var(--text-mid);max-width:520px;margin:0 auto;">
+          Take a visual tour of our premium industrial warehouse and production spaces — click any photo to view full
+          screen.
+        </p>
+      </div>
+
+      <div class="gallery-layout reveal">
+
+        <!-- Image 1 — Full-width hero -->
+        <div class="gal-hero" onclick="openLightbox(0)">
+          <img src="images/md-enterprises-1.jpg" alt="M.D. Enterprises Overview"
+            onerror="this.src='https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80'" />
+          <div class="gal-label">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
+              <path d="M3 21h18M9 21V7l6-4v18M13 11h2M13 15h2M9 11h2" />
+            </svg>
+            M.D. Enterprises — Industrial Park, Pannur
+          </div>
+        </div>
+
+        <!-- Images 2–5 in 2x2 sub-grid -->
+        <div class="gallery-sub">
+          <div class="gal-item" onclick="openLightbox(1)">
+            <img src="images/md-enterprises-2.jpg" alt="Warehouse Unit 1"
+              onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+          <div class="gal-item" onclick="openLightbox(2)">
+            <img src="images/md-enterprises-3.jpg" alt="Warehouse Interior"
+              onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+          <div class="gal-item" onclick="openLightbox(3)">
+            <img src="images/md-enterprises-4.jpg" alt="Unit 2 Exterior"
+              onerror="this.src='https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+          <div class="gal-item" onclick="openLightbox(4)">
+            <img src="images/md-enterprises-5.jpg" alt="Site Surroundings"
+              onerror="this.src='https://images.unsplash.com/photo-1565793979533-6b3e7ad9b22d?w=600&q=80'" />
+            <div class="gal-item-overlay"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lb-inner">
+      <div class="lb-close" onclick="closeLightboxDirect()">✕</div>
+      <button class="lb-nav lb-prev" onclick="lbNav(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <img id="lbImg" src="" alt="Project Photo" />
+      <button class="lb-nav lb-next" onclick="lbNav(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+      <div class="lb-counter" id="lbCounter">1 / 5</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+     4. UNIT 1 & UNIT 2 DETAILS
+════════════════════════════════════════════ -->
+  <section class="section section-gold" id="units">
+    <div class="container">
+      <div class="center reveal">
+        <div class="sec-label">Our Facilities</div>
+        <h2 class="sec-title">Unit 1 <span>&amp;</span> Unit 2</h2>
+        <div class="gold-bar center"></div>
+        <p style="font-size:15px;color:var(--text-mid);max-width:580px;margin:0 auto;">
+          M.D. Enterprises currently operates two premium industrial facilities — thoughtfully designed for engineering,
+          auto components, fabrication, and assembly operations.
+        </p>
+      </div>
+
+      <div class="units-grid">
+
+        <!-- Unit 1 -->
+        <div class="unit-card reveal-left">
+          <div class="unit-card-header">
+            <div class="unit-number">Unit 01</div>
+            <div class="unit-badge">Operational</div>
+          </div>
+          <div class="unit-body">
+            <div class="unit-title">Warehouse & Production Space — Unit 1</div>
+            <p class="unit-desc">Unit 1 is a fully operational, A-Grade industrial warehouse and production facility
+              designed to support a wide spectrum of manufacturing and logistics operations. It has been meticulously
+              planned to meet the evolving needs of modern industry with strict compliance to all regulatory standards.
+            </p>
+            <div class="unit-specs">
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Type:</strong> Warehouse &amp; Production Space</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Grade:</strong> A-Grade Industrial Facility</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Use:</strong> Engineering, Fabrication, Assembly,
+                  Logistics</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Location:</strong> Pannur Village, Sriperumbudur</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Status:</strong> Fully Operational &amp; Compliant</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Access:</strong> Wide internal road, heavy vehicle
+                  access</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit 2 -->
+        <div class="unit-card reveal-right">
+          <div class="unit-card-header">
+            <div class="unit-number">Unit 02</div>
+            <div class="unit-badge">Operational</div>
+          </div>
+          <div class="unit-body">
+            <div class="unit-title">Warehouse & Production Space — Unit 2</div>
+            <p class="unit-desc">Unit 2 is a premium industrial facility offering modern warehouse and production
+              spaces, developed with the same high standards of quality, compliance, and operational efficiency as Unit
+              1. It is strategically positioned to serve businesses within the growing Sriperumbudur–Oragadam industrial
+              ecosystem.</p>
+            <div class="unit-specs">
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Type:</strong> Warehouse &amp; Production Space</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Grade:</strong> A-Grade Industrial Facility</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Use:</strong> Auto Components, Storage, Manufacturing</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Location:</strong> Pannur Village, Sriperumbudur</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Status:</strong> Fully Operational &amp; Compliant</span>
+              </div>
+              <div class="unit-spec">
+                <div class="spec-dot"></div><span><strong>Access:</strong> Excellent NH &amp; logistics
+                  connectivity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     5. WHY CHOOSE M.D. ENTERPRISES
+════════════════════════════════════════════ -->
+  <section class="section section-white" id="why">
+    <div class="container">
+      <div class="center reveal">
+        <div class="sec-label">Why M.D. Enterprises</div>
+        <h2 class="sec-title">Why Businesses <span>Choose Us</span></h2>
+        <div class="gold-bar center"></div>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" />
+            </svg>
+          </div>
+          <div class="why-title">Strategic Location</div>
+          <p class="why-desc">Located in Pannur village within the Sriperumbudur–Oragadam industrial corridor — one of
+            South India's fastest-growing industrial hubs with excellent road and logistics connectivity.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.1s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </svg>
+          </div>
+          <div class="why-title">100% Compliant</div>
+          <p class="why-desc">Every facility is executed with strict adherence to all applicable regulatory, fire
+            safety, structural, and legal standards — providing complete operational confidence to every client.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.2s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <div class="why-title">A-Grade Quality</div>
+          <p class="why-desc">Premium construction standards, high-quality materials, and meticulous execution ensure
+            that every square foot of our facilities is built for durability, efficiency, and long-term value.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.3s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+          </div>
+          <div class="why-title">Versatile Spaces</div>
+          <p class="why-desc">Our industrial units are designed to support diverse operations — from engineering and
+            auto components to fabrication, assembly, warehousing, and logistics — flexible to your business needs.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.4s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            </svg>
+          </div>
+          <div class="why-title">Experienced Leadership</div>
+          <p class="why-desc">Backed by the vision of Mr. M. S. Mariadoss and the hands-on expertise of Mr. Joy
+            Sebastian — three generations of business acumen behind every development decision.</p>
+        </div>
+
+        <div class="why-card reveal" style="transition-delay:.5s">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <div class="why-title">Actively Expanding</div>
+          <p class="why-desc">M.D. Enterprises is continuously developing additional industrial spaces and warehouses,
+            reinforcing its commitment to industrial growth and creating more opportunities for businesses.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     6. LOCATION & CONTACT
+════════════════════════════════════════════ -->
+  <section class="section section-cream" id="location">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:48px;">
+        <div class="sec-label">Find Us</div>
+        <h2 class="sec-title">Location <span>&amp; Contact</span></h2>
+        <div class="gold-bar center"></div>
+      </div>
+
+      <div class="location-grid">
+
+        <!-- Map embed -->
+        <div class="map-wrap reveal-left">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1782552987693!2d79.8540754!3d12.9604428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52ed983fd79cb3%3A0xb4d2c161119cf7e2!2sJOY%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1776966263581!5m2!1sen!2sin"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="M.D. Enterprises Location">
+          </iframe>
+        </div>
+
+        <!-- Contact details -->
+        <div class="contact-cards reveal-right">
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Address</div>
+              <div class="cc-val">Pannur Village, Sriperumbudur–Oragadam<br>Industrial Corridor, Tamil Nadu</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Phone</div>
+              <div class="cc-val"><a href="tel:+919940245572">+91 99402 45572</a></div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Email</div>
+              <div class="cc-val"><a href="mailto:enterprisesmd21@gmail.com">enterprisesmd21@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <div>
+              <div class="cc-label">Working Hours</div>
+              <div class="cc-val">Monday – Saturday: 9:00 AM – 6:00 PM</div>
+            </div>
+          </div>
+
+          <div style="margin-top:6px;">
+            <a href="https://www.google.com/maps/place/SEBASTIAN+CONSTRUCTIONS/@12.952997,79.8536476" target="_blank"
+              class="btn-gold" style="width:100%;justify-content:center;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                style="width:15px;height:15px;">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              Get Directions on Google Maps
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+     7. CTA BANNER
+════════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container cta-inner reveal">
+      <h2>Interested in Our Industrial Spaces?</h2>
+      <p>Schedule a site visit today and see why leading manufacturers choose M.D. Enterprises.</p>
+      <div class="cta-btns">
+        <a href="enquiry.html" class="btn-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px;">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          Send an Enquiry
+        </a>
+        <a href="tel:+919940245572" class="btn-outline-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px;">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+          Call +91 99402 45572
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+  <footer>
+
+    <!-- MAIN BODY -->
+    <div class="footer-body">
+
+      <!-- COL 1 – BRAND -->
+      <div class="footer-brand">
+        <a href="index.html" class="brand-row">
+          <div class="f-logo-wrap">
+            <img src="images/logo.png" alt="MD Groups Logo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+            <span class="monogram" style="display:none;">MD</span>
+          </div>
+          <div class="f-brand-text">
+            <span class="f-brand-name"><span>MD</span> GROUPS</span>
+            <span class="f-brand-tagline">MARIADOSS GROUP</span>
+          </div>
+        </a>
+        <p class="footer-desc">
+          MD Groups is a diversified business conglomerate based in Erode, Tamil Nadu — delivering excellence across
+          real estate, enterprises, and lifestyle developments.
+        </p>
+        <div class="social-row">
+          <!-- Facebook -->
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" class="social-btn" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.47 14.38c-.28-.14-1.65-.81-1.9-.9s-.44-.14-.63.14-.72.9-.88 1.09-.32.2-.6.07a7.53 7.53 0 0 1-2.22-1.37 8.33 8.33 0 0 1-1.54-1.91c-.16-.28 0-.43.12-.57s.28-.32.42-.49a1.9 1.9 0 0 0 .28-.46.51.51 0 0 0 0-.49c-.07-.14-.63-1.52-.86-2.08s-.46-.47-.63-.48h-.54a1 1 0 0 0-.74.35 3.12 3.12 0 0 0-.97 2.31 5.41 5.41 0 0 0 1.13 2.87 12.39 12.39 0 0 0 4.74 4.19 5.53 5.53 0 0 0 3.15.66 2.85 2.85 0 0 0 1.88-1.33 2.33 2.33 0 0 0 .16-1.33c-.07-.11-.25-.18-.53-.32zM12 2a10 10 0 0 0-8.67 15L2 22l5.2-1.36A10 10 0 1 0 12 2z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 – QUICK LINKS -->
+      <div class="footer-col">
+        <div class="col-title">Quick Links</div>
+        <div class="col-underline"></div>
+        <ul class="footer-links">
+          <li><a href="index.html"><span class="fl-dot"></span>Home</a></li>
+          <li><a href="about.html"><span class="fl-dot"></span>About Us</a></li>
+          <li><a href="projects/ongoing.html"><span class="fl-dot"></span>Ongoing Projects</a></li>
+          <li><a href="projects/completed.html"><span class="fl-dot"></span>Completed Projects</a></li>
+          <li><a href="career.html"><span class="fl-dot"></span>Career</a></li>
+          <li><a href="enquiry.html"><span class="fl-dot"></span>Enquiry</a></li>
+          <li><a href="contact.html"><span class="fl-dot"></span>Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3 – OUR SERVICES -->
+      <div class="footer-col">
+        <div class="col-title">Our Services</div>
+        <div class="col-underline"></div>
+        <ul class="footer-links">
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>M.D. Enterprises
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>Joy Enterprises
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>Jabamalai Avenue
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fl-dot"></span>Joy &amp; Roy Gardens
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- COL 4 – CONTACT -->
+      <div class="footer-col">
+        <div class="col-title">Get In Touch</div>
+        <div class="col-underline"></div>
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Phone</span>
+              <a href="tel:+919999999999" class="contact-value">+91 99999 99999</a>
+              <a href="tel:+918888888888" class="contact-value">+91 88888 88888</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Email</span>
+              <a href="mailto:info@mdgroups.com" class="contact-value">info@mdgroups.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Address</span>
+              <span class="contact-value">Erode, Tamil Nadu,<br>India – 638 001</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER STRIP -->
+    <div class="newsletter-strip">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h4>Stay Updated with MD Groups</h4>
+          <p>Subscribe to get the latest projects and updates directly to your inbox.</p>
+        </div>
+        <div class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address…" />
+          <button class="newsletter-btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-copy">
+          © 2025 <strong>MD Groups</strong>. <span>All Rights Reserved.</span>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 920)
+        document.getElementById('mobileMenu').classList.remove('open');
+    });
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ── FAB back to top (guarded) ── */
+    const fabTop = document.getElementById('fabTop');
+    if (fabTop) {
+      window.addEventListener('scroll', () => {
+        fabTop.classList.toggle('show', window.scrollY > 400);
+      });
+    }
+
+    /* ── Scroll reveal ── */
+    const revEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revEls.forEach(el => revObs.observe(el));
+
+    /* ── Lightbox ── */
+    const images = [
+      'images/md-enterprises-1.jpg',
+      'images/md-enterprises-2.jpg',
+      'images/md-enterprises-3.jpg',
+      'images/md-enterprises-4.jpg',
+      'images/md-enterprises-5.jpg'
+    ];
+    let currentIdx = 0;
+
+    function openLightbox(idx) {
+      currentIdx = idx;
+      document.getElementById('lbImg').src = images[idx];
+      document.getElementById('lbCounter').textContent = (idx + 1) + ' / ' + images.length;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('lightbox')) {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeLightboxDirect() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function lbNav(dir) {
+      currentIdx = (currentIdx + dir + images.length) % images.length;
+      document.getElementById('lbImg').src = images[currentIdx];
+      document.getElementById('lbCounter').textContent = (currentIdx + 1) + ' / ' + images.length;
+    }
+
+    /* Keyboard nav */
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') lbNav(1);
+      if (e.key === 'ArrowLeft') lbNav(-1);
+      if (e.key === 'Escape') closeLightboxDirect();
+    });
+  </script>
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
